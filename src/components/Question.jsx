@@ -2,21 +2,19 @@ import React, { useEffect, useState } from "react";
 
 const Question = ({ question, handleAnswer }) => {
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
-
   const [selectedAnswer, setSelectedAnswer] = useState(null);
 
   useEffect(() => {
     const { correct_answer, incorrect_answers } = question;
     const allAnswers = [correct_answer, ...incorrect_answers];
     setShuffledAnswers(allAnswers.sort(() => Math.random() - 0.5));
-
     setSelectedAnswer(null);
   }, [question]);
 
   const { correct_answer } = question;
-  const handleSelection = (selectedAnswer) => {
-    setSelectedAnswer(selectedAnswer);
-    handleAnswer(selectedAnswer === correct_answer);
+  const handleSelection = (answer) => {
+    setSelectedAnswer(answer);
+    handleAnswer(answer === correct_answer);
   };
 
   return (
