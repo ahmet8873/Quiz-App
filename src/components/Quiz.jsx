@@ -5,19 +5,30 @@ const Quiz = ({ difficulty, name }) => {
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const [answerSelected, setAnswerSelected] = useState(false);
 
   useEffect(() => {
-    fetch(
-      `https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=multiple`
-    )
-      .then((response) => response.json())
-      .then((data) => setQuestions(data.results));
+    const fetchQuestions = async () => {
+      const questionType = Math.random() < 0.5 ? "multiple" : "boolean";
+      const response = await fetch(
+        `https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=${questionType}`
+      );
+      const data = await response.json();
+      setQuestions(data.results);
+    };
+
+    fetchQuestions();
   }, []);
 
   const handleAnswer = (isCorrect) => {
     if (isCorrect) {
       setScore(score + 1);
     }
+    setAnswerSelected(true);
+  };
+
+  const handleNextQuestion = () => {
+    setAnswerSelected(false);
     setCurrentQuestionIndex(currentQuestionIndex + 1);
   };
 
@@ -46,6 +57,7 @@ const Quiz = ({ difficulty, name }) => {
         question={questions[currentQuestionIndex]}
         handleAnswer={handleAnswer}
       />
+      {answerSelected && <button onClick={handleNextQuestion}>Next</button>}
     </div>
   );
 };
