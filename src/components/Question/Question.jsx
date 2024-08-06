@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from "./Question.module.css";
 
 const Question = ({ question, handleAnswer }) => {
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
@@ -24,16 +25,16 @@ const Question = ({ question, handleAnswer }) => {
         let buttonClass = "";
         if (selectedAnswer) {
           if (answer === correct_answer) {
-            buttonClass = "correct";
+            buttonClass = styles.correct;
           } else if (answer === selectedAnswer) {
-            buttonClass = "incorrect";
+            buttonClass = styles.incorrect;
           }
         }
         return (
           <button
             key={index}
             onClick={() => handleSelection(answer)}
-            className={buttonClass}
+            className={`${styles.button} ${buttonClass}`}
           >
             {answer}
           </button>

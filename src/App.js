@@ -1,6 +1,6 @@
-import "./App.css";
-import Home from "./components/Home";
-import Quiz from "./components/Quiz";
+import styles from "./App.module.css";
+import Home from "./components/Home/Home";
+import Quiz from "./components/Quiz/Quiz";
 import { useState } from "react";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className={styles.App}>
       {quizStarted ? (
         <Quiz difficulty={difficulty} name={name} />
       ) : (

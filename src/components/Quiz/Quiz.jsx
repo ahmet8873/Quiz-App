@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Question from "./Question";
-import Loading from "./Loading";
+import Question from "../Question/Question";
+import Loading from "../Loading/Loading";
 
 const Quiz = ({ difficulty, name }) => {
   const [questions, setQuestions] = useState([]);
