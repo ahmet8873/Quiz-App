@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Question from "./Question";
+import Loading from "./Loading";
 
 const Quiz = ({ difficulty, name }) => {
   const [questions, setQuestions] = useState([]);
@@ -42,7 +43,7 @@ const Quiz = ({ difficulty, name }) => {
     setCurrentQuestionIndex((currentQuestionIndex) => currentQuestionIndex + 1);
   };
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   if (currentQuestionIndex >= questions.length) {
@@ -66,7 +67,9 @@ const Quiz = ({ difficulty, name }) => {
         question={questions[currentQuestionIndex]}
         handleAnswer={handleAnswer}
       />
-      {answerSelected && <button onClick={handleNextQuestion}>Next</button>}
+      {answerSelected && (
+        <button onClick={handleNextQuestion}>Next Question</button>
+      )}
     </div>
   );
 };
