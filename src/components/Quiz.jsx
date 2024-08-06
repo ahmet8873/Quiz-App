@@ -7,18 +7,25 @@ const Quiz = ({ difficulty, name }) => {
   const [score, setScore] = useState(0);
   const [answerSelected, setAnswerSelected] = useState(false);
 
-  useEffect(() => {
-    const fetchQuestions = async () => {
+  const fetchQuestions = async () => {
+    try {
       const questionType = Math.random() < 0.5 ? "multiple" : "boolean";
       const response = await fetch(
         `https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=${questionType}`
       );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       setQuestions(data.results);
-    };
+    } catch (error) {
+      console.error("Error fetching questions:", error);
+    }
+  };
 
+  useEffect(() => {
     fetchQuestions();
-  }, []);
+  }, [currentQuestionIndex]);
 
   const handleAnswer = (isCorrect) => {
     if (isCorrect) {
