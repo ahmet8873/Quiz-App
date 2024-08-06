@@ -15,6 +15,6 @@ button {
   color: white;
 }
 
-button:hover {
+button:hover:not(.correct):not(.incorrect) {
   background-color: #0056b3;
 }
