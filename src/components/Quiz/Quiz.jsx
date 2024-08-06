@@ -10,26 +10,40 @@ const Quiz = ({ difficulty, name }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchQuestions = async () => {
-      setLoading(true);
-      try {
-        const questionType = Math.random() < 0.5 ? "multiple" : "boolean";
-        const response = await fetch(
-          `https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=${questionType}`
+    setLoading(true);
+    const fetchAllQuestions = async () => {
+      const multipleQuestions = await fetchQuestions("multiple", 5);
+      setTimeout(() => {
+        const booleanQuestions = fetchQuestions("boolean", 5).then(
+          (booleanQuestions) => {
+            setQuestions(
+              [...multipleQuestions, ...booleanQuestions].sort(
+                () => Math.random() - 0.5
+              )
+            );
+            setLoading(false);
+          }
         );
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setQuestions(data.results);
-      } catch (error) {
-        console.error("Error fetching questions:", error);
-      } finally {
-        setLoading(false);
-      }
+      }, 5000);
     };
-    fetchQuestions();
-  }, [currentQuestionIndex]);
+    fetchAllQuestions();
+  }, []);
+
+  const fetchQuestions = async (questionType, amount) => {
+    try {
+      const response = await fetch(
+        `https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=${questionType}`
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      return data.results;
+    } catch (error) {
+      console.error("Error fetching questions:", error);
+      return [];
+    }
+  };
 
   const handleAnswer = (isCorrect) => {
     if (isCorrect) {
