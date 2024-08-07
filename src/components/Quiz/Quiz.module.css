@@ -1,36 +1,43 @@
 .container {
-  text-align: center;
-  max-width: 600px;
-  padding: 20px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+  background: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 3%;
+  margin: auto;
 }
 
 h2 {
-  margin-bottom: 20px;
+  font-size: 1.5em;
+  margin-bottom: 2%;
+  color: #333;
+  text-align: center;
 }
 
 button {
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(45deg, #ffaac9, #6b95df);
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2% 4%;
+  margin-top: 5%;
+  font-size: 1em;
+  color: black;
+  background-color: #fff;
+  border: 1px solid #a8e08f;
+  border-radius: 5px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background: linear-gradient(45deg, #ffaac9, #6b95df);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
+  background-color: #a0f27a;
+  color: #fff;
 }
 
-.score {
-  margin-top: 20px;
-  font-size: 1.2em;
+.logo {
+  width: 10%;
+  height: auto;
+  margin-bottom: 5%;
 }

@@ -1,13 +1,13 @@
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
 }
 .App {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
   font-family: Arial, sans-serif;
-  background-image: url("https://img.freepik.com/free-vector/mobile-wallpaper-with-fluid-shapes_79603-599.jpg?t=st=1722973865~exp=1722977465~hmac=68b0fd030d5e06caeb5ba2a5a7a1cf7807759655ecb61663751ec9027c501533&w=740");
 }

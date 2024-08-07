@@ -64,6 +64,7 @@ const Quiz = ({ difficulty, name }) => {
   if (currentQuestionIndex >= questions.length) {
     return (
       <div className={styles.container}>
+        <img className={styles.logo} src="/speech-bubble.png" alt="logo" />
         <h2>Quiz Finished</h2>
         <p className={styles.score}>
           {name}, your score is: {score} / {questions.length}
@@ -82,9 +83,7 @@ const Quiz = ({ difficulty, name }) => {
         question={questions[currentQuestionIndex]}
         handleAnswer={handleAnswer}
       />
-      {answerSelected && (
-        <button onClick={handleNextQuestion}>Next Question</button>
-      )}
+      {answerSelected && <button onClick={handleNextQuestion}>Next</button>}
     </div>
   );
 };
