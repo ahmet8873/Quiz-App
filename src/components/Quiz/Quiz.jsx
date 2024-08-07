@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Question from "../Question/Question";
 import Loading from "../Loading/Loading";
+import styles from "./Quiz.module.css";
 
 const Quiz = ({ difficulty, name }) => {
   const [questions, setQuestions] = useState([]);
@@ -62,9 +63,9 @@ const Quiz = ({ difficulty, name }) => {
 
   if (currentQuestionIndex >= questions.length) {
     return (
-      <div>
+      <div className={styles.container}>
         <h2>Quiz Finished</h2>
-        <p>
+        <p className={styles.score}>
           {name}, your score is: {score} / {questions.length}
         </p>
         <button onClick={() => window.location.reload()}>Restart</button>
@@ -73,7 +74,7 @@ const Quiz = ({ difficulty, name }) => {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <h2>
         Question {currentQuestionIndex + 1} / {questions.length}
       </h2>

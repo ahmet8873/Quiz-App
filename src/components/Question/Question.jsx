@@ -35,6 +35,7 @@ const Question = ({ question, handleAnswer }) => {
             key={index}
             onClick={() => handleSelection(answer)}
             className={`${styles.button} ${buttonClass}`}
+            disabled={selectedAnswer !== null}
           >
             {answer}
           </button>

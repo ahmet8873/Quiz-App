@@ -6,12 +6,12 @@ button {
 }
 
 .correct {
-  background-color: green;
+  background: green;
   color: white;
 }
 
 .incorrect {
-  background-color: red;
+  background: red;
   color: white;
 }
 
