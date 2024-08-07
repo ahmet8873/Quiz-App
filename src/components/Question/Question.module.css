@@ -23,7 +23,7 @@ h3 {
   margin: 2% auto;
   font-size: 1em;
   color: #fff;
-  background-color: #007bff;
+  background-color: #4fa1f9;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -37,13 +37,13 @@ h3 {
 }
 
 .correct {
-  background-color: #d4edda;
-  color: #155724;
-  cursor: default;
+  background-color: #d4edda !important;
+  color: #155724 !important;
+  cursor: default !important;
 }
 
 .incorrect {
-  background-color: #f8d7da;
-  color: #721c24;
-  cursor: default;
+  background-color: #f8d7da !important;
+  color: #721c24 !important;
+  cursor: default !important;
 }

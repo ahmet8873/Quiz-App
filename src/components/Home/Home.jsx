@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "./Home.module.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = ({ startQuiz }) => {
   const [name, setName] = useState("");
@@ -7,7 +9,7 @@ const Home = ({ startQuiz }) => {
 
   const handleStart = () => {
     if (!name) {
-      alert("Please enter a name");
+      toast.error("Please enter a name");
       return;
     }
     startQuiz(difficulty, name);
@@ -27,7 +29,7 @@ const Home = ({ startQuiz }) => {
           <input
             type="text"
             value={name}
-            placeholder="Enter your name"
+            placeholder="Enter Your Name"
             onChange={(e) => setName(e.target.value)}
           />
         </div>
@@ -44,6 +46,7 @@ const Home = ({ startQuiz }) => {
         </div>
         <button onClick={handleStart}>Start</button>
       </div>
+      <ToastContainer />
     </div>
   );
 };
