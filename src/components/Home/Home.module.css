@@ -128,3 +128,77 @@ button:hover {
     font-size: 1em;
   }
 }
+
+/* difficulty buttons */
+.difficultyButtons {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.difficultyButton {
+  margin: 0 5px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.difficultyButton:hover {
+  background-color: #86d164;
+  rotate: -3deg;
+}
+
+.selected {
+  background-color: #86d164;
+  color: #fff;
+  border: none;
+}
+/* start button */
+.startButton {
+  color: #fff;
+  border-radius: 5px;
+
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  outline: none;
+  width: 130px;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  background: #89d467;
+}
+
+.startButton:hover {
+  color: #097e12;
+  background: transparent;
+}
+.startButton:before,
+.startButton:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #097e12;
+  transition: 400ms ease all;
+}
+.startButton:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+.startButton:hover:before,
+.startButton:hover:after {
+  width: 100%;
+}

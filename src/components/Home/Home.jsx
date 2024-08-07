@@ -8,8 +8,8 @@ const Home = ({ startQuiz }) => {
   const [difficulty, setDifficulty] = useState("");
 
   const handleStart = () => {
-    if (!name) {
-      toast.error("Please enter a name");
+    if (!name || !difficulty) {
+      toast.error("Please select difficulty and enter your name");
       return;
     }
     startQuiz(difficulty, name);
@@ -35,16 +35,36 @@ const Home = ({ startQuiz }) => {
         </div>
         <div>
           <label>Please select difficulty </label>
-          <select
-            value={difficulty}
-            onChange={(e) => setDifficulty(e.target.value)}
-          >
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
+          <div className={styles.difficultyButtons}>
+            <button
+              className={`${styles.difficultyButton} ${
+                difficulty === "easy" ? styles.selected : ""
+              }`}
+              onClick={() => setDifficulty("easy")}
+            >
+              Easy
+            </button>
+            <button
+              className={`${styles.difficultyButton} ${
+                difficulty === "medium" ? styles.selected : ""
+              }`}
+              onClick={() => setDifficulty("medium")}
+            >
+              Medium
+            </button>
+            <button
+              className={`${styles.difficultyButton} ${
+                difficulty === "hard" ? styles.selected : ""
+              }`}
+              onClick={() => setDifficulty("hard")}
+            >
+              Hard
+            </button>
+          </div>
         </div>
-        <button onClick={handleStart}>Start</button>
+        <button className={styles.startButton} onClick={handleStart}>
+          Start
+        </button>
       </div>
       <ToastContainer />
     </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Question from "../Question/Question";
 import Loading from "../Loading/Loading";
 import styles from "./Quiz.module.css";
+import { GrFormNextLink } from "react-icons/gr";
 
 const Quiz = ({ difficulty, name }) => {
   const [questions, setQuestions] = useState([]);
@@ -65,7 +66,7 @@ const Quiz = ({ difficulty, name }) => {
     return (
       <div className={styles.container}>
         <img className={styles.logo} src="/speech-bubble.png" alt="logo" />
-        <h2>Quiz Finished</h2>
+        <h2 className={styles.heartbeat}>Quiz Finished</h2>
         <p className={styles.score}>
           {name}, your score is: {score} / {questions.length}
         </p>
@@ -83,7 +84,11 @@ const Quiz = ({ difficulty, name }) => {
         question={questions[currentQuestionIndex]}
         handleAnswer={handleAnswer}
       />
-      {answerSelected && <button onClick={handleNextQuestion}>Next</button>}
+      {answerSelected && (
+        <button onClick={handleNextQuestion}>
+          Next <GrFormNextLink className={styles.nextIcon} />
+        </button>
+      )}
     </div>
   );
 };
