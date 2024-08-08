@@ -3,6 +3,7 @@ import Question from "../Question/Question";
 import Loading from "../Loading/Loading";
 import styles from "./Quiz.module.css";
 import { GrFormNextLink } from "react-icons/gr";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 const Quiz = ({ difficulty, name }) => {
   const [questions, setQuestions] = useState([]);
@@ -77,6 +78,10 @@ const Quiz = ({ difficulty, name }) => {
 
   return (
     <div className={styles.container}>
+      <ProgressBar
+        currentQuestionIndex={currentQuestionIndex}
+        totalQuestions={questions.length}
+      />
       <h2>
         Question {currentQuestionIndex + 1} / {questions.length}
       </h2>
