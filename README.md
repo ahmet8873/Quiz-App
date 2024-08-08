@@ -14,3 +14,11 @@ Check out the live version of the Homerun Quiz App [here](https://66b49cc89cf946
 - **Question Types:** Includes multiple-choice and true/false questions.
 - **Score Tracking:** Displays the final score at the end of the quiz.
 - **Responsive Design:** Optimized for both desktop and mobile devices.
+
+## Technologies Used
+
+- **React:** A JavaScript library for building user interfaces.
+- **CSS Modules:** For styling the components.
+- **React Toastify:** For displaying notifications.
+- **Open Trivia Database (OpenTDB):** For fetching quiz questions.
+- **React Icons:** For adding icons to the app.
